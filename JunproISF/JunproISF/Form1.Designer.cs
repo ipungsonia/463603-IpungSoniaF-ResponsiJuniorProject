@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv = new System.Windows.Forms.DataGridView();
+            this.dgvTabel = new System.Windows.Forms.DataGridView();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -36,47 +36,50 @@
             this.cbDep = new System.Windows.Forms.ComboBox();
             this.tbNama = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            this.btnLoad = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTabel)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgv
+            // dgvTabel
             // 
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(59, 213);
-            this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(456, 195);
-            this.dgv.TabIndex = 0;
+            this.dgvTabel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTabel.Location = new System.Drawing.Point(59, 243);
+            this.dgvTabel.Name = "dgvTabel";
+            this.dgvTabel.Size = new System.Drawing.Size(456, 195);
+            this.dgvTabel.TabIndex = 0;
+            this.dgvTabel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(59, 169);
+            this.btnInsert.Location = new System.Drawing.Point(180, 199);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(87, 23);
             this.btnInsert.TabIndex = 1;
             this.btnInsert.Text = "Insert";
             this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(428, 169);
+            this.btnDelete.Location = new System.Drawing.Point(428, 199);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(87, 23);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(246, 169);
+            this.btnEdit.Location = new System.Drawing.Point(302, 199);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(87, 23);
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // label2
             // 
@@ -90,6 +93,12 @@
             // cbDep
             // 
             this.cbDep.FormattingEnabled = true;
+            this.cbDep.Items.AddRange(new object[] {
+            "HR",
+            "ENG",
+            "DEV",
+            "PM",
+            "FIN"});
             this.cbDep.Location = new System.Drawing.Point(180, 124);
             this.cbDep.Name = "cbDep";
             this.cbDep.Size = new System.Drawing.Size(142, 21);
@@ -114,14 +123,6 @@
     "nance";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pbLogo
-            // 
-            this.pbLogo.Location = new System.Drawing.Point(62, 30);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(36, 36);
-            this.pbLogo.TabIndex = 10;
-            this.pbLogo.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -134,20 +135,30 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(104, 43);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(59, 33);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 13);
+            this.label4.Size = new System.Drawing.Size(82, 18);
             this.label4.TabIndex = 11;
-            this.label4.Text = "PT Respons Ijaya";
+            this.label4.Text = "PT Bisa A";
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(59, 199);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(87, 23);
+            this.btnLoad.TabIndex = 12;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 450);
+            this.ClientSize = new System.Drawing.Size(575, 491);
+            this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbNama);
             this.Controls.Add(this.cbDep);
@@ -156,12 +167,11 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnInsert);
-            this.Controls.Add(this.dgv);
+            this.Controls.Add(this.dgvTabel);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTabel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,7 +179,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.DataGridView dgvTabel;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
@@ -177,9 +187,9 @@
         private System.Windows.Forms.ComboBox cbDep;
         private System.Windows.Forms.TextBox tbNama;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnLoad;
     }
 }
 
